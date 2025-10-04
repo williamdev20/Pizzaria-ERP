@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepara AI | Login Pizzaria</title>
+	<link rel="stylesheet" href="{% static 'css/autenticacao.css' %}">
+</head>
+<body>
+	<h1>Login Pizzaria</h1>
+	<form action="{% url 'login_pizzaria' %}" method="post">
+		{% csrf_token %}
+		<label>Email</label>
+		<input type="email" name="email" placeholder="Digite seu melhor email">
+		<label>Senha</label>
+		<input type="password" name="senha" placeholder="Digite sua senha">
+		<p>Não tem uma pizzaria cadastrada? <a href="{% url 'cadastro_pizzaria' %}">Cadastre agora</a></p>
+		{% if error %}
+			<p class="error">{{ error }}</p>
+		{% endif %}
+		<button type="submit">Entrar</button>
+	</form>
+</body>
+</html>

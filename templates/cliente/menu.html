@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepara AI | Menu Cliente</title>
+	<link rel="stylesheet" href="{% static 'css/menuCliente.css' %}">
+</head>
+<body>
+	<header>
+		<nav>
+			<h3>Prepara AI</h3>
+		</nav>
+	</header>
+	
+	<h1>Escolha sua pizzaria favorita</h1>
+	<div class="pizzariaContainer">
+			{% for pizzaria in pizzarias %}
+				<div class="card">
+					<a href="{% url 'pedir' id=pizzaria.id %}">
+						Nome da pizzaria: {{ pizzaria.user.username }} <br>
+						CEP: {{ pizzaria.cep }} <br>
+						Email {{ pizzaria.user.email }}<br>
+						Número Whatsapp: {{ pizzaria.numeroWhatsapp }} <br>
+						<br>
+					</a>
+				</div>
+			{% endfor %}
+	</div>
+</body>
+</html>

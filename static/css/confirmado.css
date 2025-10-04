@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Bitcount+Grid+Single:wght@100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend+Deca:wght@100..900&family=Mozilla+Text:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+ 	height: 100%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  	background-image: url('https://img.freepik.com/vetores-gratis/fundo-de-padrao-de-pizza-desenhado-a-mao_23-2150905263.jpg?semt=ais_hybrid&w=740&q=80'); /* caminho da imagem */
+  	background-size: cover;      /* cobre toda a tela */
+  	background-position: center; /* centraliza a imagem */
+  	background-repeat: no-repeat;/* evita repetição */
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f9f9f9;
+	width: 500px;
+	height: 300px;
+	flex-direction: column;
+	gap: 30px;
+	border-radius: 25px;
+}
+
+img {
+	width: 65px;
+	height: 65px;
+}

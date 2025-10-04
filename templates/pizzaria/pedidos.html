@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepara AI | Pedidos</title>
+	<link rel="stylesheet" href="{% static 'css/pedidos.css' %}">
+</head>
+<body>
+	<h1>Pedidos da {{ pizzaria.user.username }}</h1>
+	<div class="card-container">
+		{% for pedido in pedidos %}
+		<div class="card">
+			<ul>
+				<li>Sabor 1: {{ pedido.primeiroSabor }}</li>
+				<li>Sabor 2: {{ pedido.segundoSabor }}</li>
+				<li>CEP: {{ pedido.cep }}</li>
+				<li>Tipo de borda: {{ pedido.borda }}</li>
+			</ul>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>

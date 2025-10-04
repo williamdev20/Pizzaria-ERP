@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepara AI | Faça seu pedido</title>
+	<link rel="stylesheet" href="{% static 'css/pedir.css' %}">
+</head>
+<body>
+	<h1>Faça seu pedido</h1>
+	<form action="{% url 'pedir' id=pizzaria_id %}" method="post">
+		{% csrf_token %}
+		<div class="container">
+			<label>Sabor 1</label>
+			<select name="primeiroSabor" required>
+				<option value="" selected disabled>Escolha um sabor</option>
+				{% for pizza in pizzas %}
+					<option value="{{ pizza.id }}">{{ pizza.nomePizza }} - R${{ pizza.precoPizza }}</option>
+				{% endfor %}
+			</select>
+			<label>Sabor 2</label>
+			<select name="segundoSabor" required>
+				<option value="" selected>Sem segundo sabor</option>
+				{% for pizza in pizzas %}
+					<option value="{{ pizza.id }}">{{ pizza.nomePizza }} - R${{ pizza.precoPizza }}</option>
+				{% endfor %}
+			</select>
+			<select class="borda" name="borda" required>
+				<option value="" selected disabled>Escolher borda</option>
+				<option value="Com borda">Com borda</option>
+				<option value="Sem borda">Sem borda</option>
+			</select>
+			<label>Digite seu CEP</label>
+			<input type="text" name="cep" placeholder="Digite seu CEP aqui" required>
+			{% if precoTotal %}
+				<p>Preço Total: {{ precoTotal }}</p>
+			{% endif %}
+			<button type="submit" name="button">Adicionar outra pizza</button>
+		</div>
+		<button type="submit" name="button" value="confirmar"><strong>Confirmar pedido</strong></button>
+	</form>
+</body>
+</html>

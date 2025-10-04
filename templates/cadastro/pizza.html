@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepara AI | Cadastro Pizzas</title>
+	<link rel="stylesheet" href="{% static 'css/autenticacao.css' %}">
+</head>
+<body>
+	<h1>Cadastro de Pizzas</h1>
+	<form action="{% url 'cadastro_pizza' id=pizzaria_id %}" method="post">
+		{% csrf_token %}
+		<label>Digite as pizzas que você oferece</label>
+		<input type="text" name="nomePizza" placeholder="Digite, um por um, as pizzas que você oferece" required>
+		<label>Digite o preço das suas pizzas</label>
+		<input type="text" name="precoPizza" placeholder="Digite o preço da sua pizza" required>
+		<button type="submit" name="button" value="cadastrar">Cadastrar Pizza</button>
+		<button type="submit" class="finalizar" name="button" value="finalizar">Finalizar</button>
+	</form>
+</body>
+</html>
