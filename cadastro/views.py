@@ -29,8 +29,9 @@ def cliente(request):
 			)
 
 			return redirect("login_cliente")
-		except IntegrityError:
+		except IntegrityError as e:
 			error = "Esta conta já existe!"
+			print(f"Erro inesperado: {e}")
 
 	return render(request, "cadastro/cliente.html", {"error": error})
 
@@ -61,8 +62,10 @@ def pizzaria(request):
 
 			return redirect("cadastro_pizza", id=user.id)
 
-		except IntegrityError:
+		except IntegrityError as e:
 			error = "Essa conta já existe!"
+			print(f"Erro inesperado: {e}")
+
 
 	return render(request, "cadastro/pizzaria.html", {"error": error})
 

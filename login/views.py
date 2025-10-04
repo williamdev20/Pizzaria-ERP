@@ -10,7 +10,7 @@ def cliente(request):
 
 		user = authenticate(request, username=email, password=senha)
 
-		if user and user.is_user:
+		if user is not None and user.is_user:
 			login(request, user)
 			return redirect("menu")
 		else:
@@ -26,9 +26,9 @@ def pizzaria(request):
 		email = request.POST.get('email')
 		senha = request.POST.get('senha')
 
-		user = authenticate(username=email, password=senha)
+		user = authenticate(request, username=email, password=senha)
 
-		if user and user.is_pizzaria:
+		if user is not None and user.is_pizzaria:
 			login(request, user)
 			return redirect("pedidos", id=user.pizzaria.id)
 		else:
