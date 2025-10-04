@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-memkz)n898i^r29!@&+j_u3cfivq-%eo+o0iyqs5a83o&=ys2u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prepara-ai.onrender.com']
 
 
 # Application definition
