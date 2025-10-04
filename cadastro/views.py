@@ -17,7 +17,7 @@ def cliente(request):
 
 		try:
 			user = User.objects.create_user(
-				username=nome,
+				username=email,
 				email=email,
 				password=senha,
 				is_user=True
@@ -49,7 +49,7 @@ def pizzaria(request):
 		try:
 			user = User.objects.create_user(
 				is_pizzaria = True,
-				username=nomePizzaria,
+				username=email,
 				email=email,
 				password=senha
 			)
